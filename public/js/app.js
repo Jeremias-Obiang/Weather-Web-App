@@ -16,10 +16,10 @@ var form=document.querySelector('.form');
 
 function fetchData(address){
     error.textContent ="";
-    let url=`http://localhost:3000/weather`;
+    let url=`/weather`;
 
     if(address!=undefined){
-        url=`http://localhost:3000/weather?address=${address}`;
+        url=`/weather?address=${address}`;
     }
 
     fetch(url)

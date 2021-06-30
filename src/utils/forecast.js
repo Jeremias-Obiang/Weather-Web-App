@@ -15,7 +15,7 @@ const forecast=(address,callback)=>{
     
     const request=https.request(options,(res)=>{
         let first_data="";//Variable that's gonna catch the every single data sends by the api ..
-        console.log(res.statusCode);
+        
 
         //Caching request or errors .. https errors (400,401,404,etc.)
         if(res.statusCode===404) callback('Cannot find location, try again.',undefined);
@@ -30,7 +30,7 @@ const forecast=(address,callback)=>{
             res.on('end',()=>{
 
                 const last_data=first_data;
-                console.log(last_data);
+                
                 callback(undefined,{
                     temperature:last_data.main.temp,
                     description:last_data.weather[0].description,

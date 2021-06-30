@@ -3,7 +3,11 @@
 html,
 body {
     height: 100%;
-    background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+    /* background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%); */
+    background-image: url("/img/clouds.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body h1{
@@ -93,10 +97,16 @@ form button{
 }
 
 footer p{
-    color: white;
+    color:black;
 }
+
 
 .weather_image{
     visibility: hidden;
-    
+}
+
+.error_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

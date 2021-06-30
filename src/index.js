@@ -11,6 +11,9 @@ const sendData=require(__dirname+'/utils/sendData.js');
 
 const app=express();
 
+// Set port enviroment value
+const port=process.env.PORT || 3000;
+
 // Setting up the different paths we'll be using 
 const staticFilesPath=path.join(__dirname,'../public');
 const viewsPath=path.join(__dirname,'../templates/view');
@@ -24,7 +27,7 @@ app.use(express.static(staticFilesPath));//Setting up the static files path
 hbs.registerPartials(partialsPath); //Registering the views partials path
 
 
-app.get('',(req,res) => {
+app.get('/',(req,res) => {
     res.render('index');
 });
 
@@ -34,7 +37,11 @@ app.get('/weather',(req,res) => {
     sendData.searchData(address,res);
 });
 
-     
-app.listen(3000,()=>{
-    console.log('Server opennned on port 3000');
+app.get('*', (req, res) => {
+    res.render('404');
+})   
+
+
+app.listen(port,()=>{
+    console.log('Server opennned on port: '+port);
 });
