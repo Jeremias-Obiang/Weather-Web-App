@@ -9,6 +9,7 @@ const hbs=require('hbs');
 //Local modules
 const sendData=require(__dirname+'/utils/sendData.js');
 
+// Initializing express
 const app=express();
 
 // Set port enviroment value
@@ -26,17 +27,19 @@ app.set('views',viewsPath);//Definning the views path
 app.use(express.static(staticFilesPath));//Setting up the static files path
 hbs.registerPartials(partialsPath); //Registering the views partials path
 
-
+// Homepage route page
 app.get('/',(req,res) => {
     res.render('index');
 });
 
+// Weather search route page
 app.get('/weather',(req,res) => {
     let address=req.query.address;
     if(!address)return sendData.geocodeData(res);
     sendData.searchData(address,res);
 });
 
+//404 route page
 app.get('*', (req, res) => {
     res.render('404');
 })   

@@ -14,12 +14,13 @@ const forecast=(address,callback)=>{
 
     
     const request=https.request(options,(res)=>{
-        let first_data="";//Variable that's gonna catch the every single data sends by the api ..
+        // console.log(res.statusCode);
+        let first_data="";//Variable that's gonna catch  every single data sent by the api ..
         
 
         //Caching request or errors .. https errors (400,401,404,etc.)
         if(res.statusCode===404) callback('Cannot find location, try again.',undefined);
-        // if(res.statusCode!=200) callback('An error occured during the request,try again.',undefined);
+
         //If we successfully got the data then put it all in a variable ,until all the data is acumulated
         if(res.statusCode===200){
             res.on('data',(chunk)=>{

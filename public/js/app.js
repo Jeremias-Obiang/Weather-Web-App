@@ -15,7 +15,6 @@ var search=document.querySelector('.search');
 var form=document.querySelector('.form');
 
 function fetchData(address){
-    error.textContent ="";
     let url=`/weather`;
 
     if(address!=undefined){
@@ -28,6 +27,7 @@ function fetchData(address){
             if (data.error) {
                 error.textContent = data.error+"⚠️.";
             } else {
+                error.textContent="";
                 temperature.textContent=parseFloat(data.temperature).toFixed(0)+"°C";
                 description.textContent=data.description;
                 wind.textContent=data.wind;

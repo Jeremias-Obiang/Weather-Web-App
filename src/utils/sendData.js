@@ -32,6 +32,7 @@ const geocodeData=(res)=>{
 
 const searchData=(addrees,res)=>{
     forecast(addrees,(error,forecastData)=>{
+        
         if (error) { return res.send({ error }) }
         let country=countries.getName(forecastData.country, "en", {select: "official"});
 
