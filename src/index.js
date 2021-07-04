@@ -35,7 +35,7 @@ app.get('/',(req,res) => {
 // Weather search route page
 app.get('/weather',(req,res) => {
     let address=req.query.address;
-    if(!address)return sendData.geocodeData(res);
+    if(!address)return sendData.first_call_Data(res);
     sendData.searchData(address,res);
 });
 

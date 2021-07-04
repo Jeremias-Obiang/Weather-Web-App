@@ -7,7 +7,7 @@ const date=require(__dirname+'/date.js');
 const countries=require('i18n-iso-countries');
 
 
-const geocodeData=(res)=>{
+const first_call_Data=(res)=>{
     geocode((error,geocodeData) => {
         if (error) { return res.send({ error }) }
         forecast(geocodeData.city,(error,forecastData)=>{
@@ -32,7 +32,7 @@ const geocodeData=(res)=>{
 
 const searchData=(addrees,res)=>{
     forecast(addrees,(error,forecastData)=>{
-        
+
         if (error) { return res.send({ error }) }
         let country=countries.getName(forecastData.country, "en", {select: "official"});
 
